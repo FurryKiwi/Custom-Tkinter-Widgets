@@ -7,11 +7,10 @@ except ImportError:  # Python 3
 
 
 class DefaultListbox(tk.Listbox):
+    __slots__ = "root", "selection", "shifting", "ctrl_clicked", "index_lock"
 
     def __init__(self, root, **kw):
         tk.Listbox.__init__(self, root, **kw)
-        # TODO: Possibly play with this this weekend
-        # ttk.Widget.__init__(self, master=None, widgetname=None)
         self.root = root
         self.bind('<Button-1>', self.set_current)
         self.bind('<Control-1>', self.toggle_selection)

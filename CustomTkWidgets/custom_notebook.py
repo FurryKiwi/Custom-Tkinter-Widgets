@@ -11,7 +11,8 @@ except ImportError:  # Python 3
 
 class DefaultNotebook(ttk.Notebook):
     TAB_FONT = ("Arial", 12, 'bold')
-    BUTTON_BG = "#007fff"  # Change this to whatever color you need
+    BUTTON_BG = "#007fff"  # Change this to whatever color you need for when no theme is specified
+    __slots__ = "root", "theme", "style", "_active", "packed"
 
     def __init__(self, root, theme: bool = False, *args, **kwargs):
         kwargs['style'] = "TNotebook"
